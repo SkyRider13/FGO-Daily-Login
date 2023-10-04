@@ -13,7 +13,7 @@ authKeys = os.environ['NAauthKeys'].split(',')
 secretKeys = os.environ['NAsecretKeys'].split(',')
 fate_region = os.environ['NAfateRegion']
 webhook_discord_url = os.environ['NAwebhookDiscord']
-UA = os.environ['UserAgent']
+UA = os.environ['NAUserAgent']
 
 if UA != 'nullvalue':
     fgourl.user_agent_ = UA
