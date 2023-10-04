@@ -39,7 +39,7 @@ jobs:
           python3 main1.py  
         env:
           NAuserIds: ${{ secrets.NAGAME_USERIDS }}
-          NaauthKeys: ${{ secrets.NAGAME_AUTHKEYS }}
+          NAauthKeys: ${{ secrets.NAGAME_AUTHKEYS }}
           NAsecretKeys: ${{ secrets.NAGAME_SECRETKEYS }}
           NAUserAgent: ${{ secrets.NAGAME_USERAGENT }}
           NAfateRegion: ${{ secrets.NAGAME_REGION }}
