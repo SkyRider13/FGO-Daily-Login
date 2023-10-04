@@ -8,19 +8,19 @@ import coloredlogs
 import logging
 
 # Enviroments Variables
-userIds = os.environ['NAuserIds'].split(',')
-authKeys = os.environ['NAauthKeys'].split(',')
-secretKeys = os.environ['NAsecretKeys'].split(',')
-fate_region = os.environ['NAfateRegion']
-webhook_discord_url = os.environ['NAwebhookDiscord']
-UA = os.environ['NAUserAgent']
+NAuserIds = os.environ['NAuserIds'].split(',')
+NAauthkeys = os.environ['NAauthkeys'].split(',')
+NAsecretkeys = os.environ['NAsecretkeys'].split(',')
+NAfate_region = os.environ['NAfateRegion']
+NAwebhook_discord_url = os.environ['NAwebhookDiscord']
+NAUA = os.environ['NAUserAgent']
 
 if UA != 'nullvalue':
-    fgourl.user_agent_ = UA
+    fgourl.user_agent_ = NAUA
 
-userNums = len(userIds)
-authKeyNums = len(authKeys)
-secretKeyNums = len(secretKeys)
+userNums = len(NAuserIds)
+authKeyNums = len(NAauthkeys)
+NAsecretkeyNums = len(NAsecretkeys)
 
 logger = logging.getLogger("FGO Daily Login")
 coloredlogs.install(fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
@@ -29,7 +29,7 @@ coloredlogs.install(fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
 def get_latest_verCode():
     endpoint = ""
 
-    if fate_region == "NA":
+    if NAfate_region == "NA":
         endpoint += "https://raw.githubusercontent.com/O-Isaac/FGO-VerCode-extractor/NA/VerCode.json"
     else:
         endpoint += "https://raw.githubusercontent.com/O-Isaac/FGO-VerCode-extractor/JP/VerCode.json"
@@ -41,13 +41,13 @@ def get_latest_verCode():
 
 
 def main():
-    if userNums == authKeyNums and userNums == secretKeyNums:
+    if userNums == authKeyNums and userNums == NAsecretkeyNums:
         logger.info('Getting Lastest Assets Info')
         fgourl.set_latest_assets()
 
         for i in range(userNums):
             try:
-                instance = user.user(userIds[i], authKeys[i], secretKeys[i])
+                instance = user.user(NAuserIds[i], NAauthkeys[i], NAsecretkeys[i])
                 time.sleep(3)
                 logger.info('Loggin into account!')
                 instance.topLogin()
