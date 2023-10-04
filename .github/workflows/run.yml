@@ -25,7 +25,7 @@ jobs:
 
       - name: Execute main script
         run: |
-          python3 main.py
+          python3 main.py, main1.py
         env:
           userIds: ${{ secrets.GAME_USERIDS }}
           authKeys: ${{ secrets.GAME_AUTHKEYS }}
@@ -33,12 +33,9 @@ jobs:
           UserAgent: ${{ secrets.GAME_USERAGENT }}
           fateRegion: ${{ secrets.GAME_REGION }}
           webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
-         run: |
-            python main1.py
-         env:
-         NAuserIds: ${{ secrets.NAGAME_USERIDS }}
-         NaauthKeys: ${{ secrets.NAGAME_AUTHKEYS }}
-         NAsecretKeys: ${{ secrets.NAGAME_SECRETKEYS }}
-         NAUserAgent: ${{ secrets.NAGAME_USERAGENT }}
-         NAfateRegion: ${{ secrets.NAGAME_REGION }}
-         NAwebhookDiscord: ${{ secrets.NADISCORD_WEBHOOK }}
+          NAuserIds: ${{ secrets.NAGAME_USERIDS }}
+          NaauthKeys: ${{ secrets.NAGAME_AUTHKEYS }}
+          NAsecretKeys: ${{ secrets.NAGAME_SECRETKEYS }}
+          NAUserAgent: ${{ secrets.NAGAME_USERAGENT }}
+          NAfateRegion: ${{ secrets.NAGAME_REGION }}
+          NAwebhookDiscord: ${{ secrets.NADISCORD_WEBHOOK }}
